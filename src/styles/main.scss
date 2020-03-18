@@ -1,0 +1,295 @@
+@import "helpers/variables";
+@import "helpers/mixins";
+@import "helpers/functions";
+@import "vendor/libs";
+@import "base/fonts";
+@import "base/general";
+@import "../blocks/modules";
+
+$logo-color-start: #858688;
+$logo-color-end: #5b4295;
+$menu-color: #454545;
+$lang-menu-color: #959595;
+$clarification-grey-color: #464646;
+$clarification-red-color: #fc2028;
+$btn-color: #ffffff;
+$btn-hover-color: #e0ffff;
+$btn-bg-color: #6c4970;
+
+
+body {
+    font-family: 'Titillium Web';
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, p {
+    padding: 0;
+    margin: 0;
+}
+
+.wrapper-main {
+    max-width: 1406px;
+    margin: 0 auto;
+}
+
+.page-main {
+    position: relative;
+    max-width: 1800px;
+    height: 889px;
+    background-image: url("../img/page-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    &__title {
+        color: $menu-color;
+        font-size: 60px;
+        font-weight: 600;
+        opacity: 0.84;
+        letter-spacing: 0.6px;
+        text-align: center;
+        margin-top: 162px;
+    }
+    &__clarification {
+        font-size: 36px;
+        font-weight: 400;
+        line-height: 56px;
+        letter-spacing: 0.36px;
+        color: $clarification-grey-color;
+        text-align: center;
+        & span {
+            color: $clarification-red-color;
+        }
+    }
+    &-social {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        right: 34px;
+        top: 265px;
+        list-style-type: none;
+        padding-left: 0;
+        &__item {
+            margin-bottom: 14px;
+            &:hover .page-main-social__link{
+                color: $btn-bg-color;
+            }
+        }
+        &__link {
+            color: $menu-color;
+            opacity: 0.82;
+            font-size: 22px;
+        }
+    }
+}
+
+
+.header {
+    max-width: 1406px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 55px;
+    &__logo {
+        flex-basis: 20%;
+        color: $logo-color-start;
+        font-size: 30px;
+        font-weight: 700;
+        letter-spacing: 0.06px;
+        text-decoration: none;
+        margin-top: 25px;
+        & span {
+            color: $logo-color-end;
+            letter-spacing: 0.06px;
+        }
+    }
+    & > nav {
+        flex-basis: 80%;
+        justify-self: end;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+    }
+    &-list {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 24px;
+        &_btn {
+           margin-left: 60px; 
+           margin-top: 46px; 
+           position: relative;  
+           width: 200px; 
+        }
+        &__item {
+            list-style-type: none;
+            margin-left: 26px;
+            &_btn_sign-up {
+                width: 131px;
+                height: 78px;
+                background-image: url(../img/button.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                position: absolute;
+                right: -18px;
+                &:hover {
+                    right: -19px;
+                    top: -32px;
+                }
+                &:hover .header-list__btn_sign-up {
+                    color: $btn-hover-color;
+                } 
+            }
+            &_btn_log-in {
+                width: 80px;
+                height: 79px;
+                margin-right: -18px;
+                position: absolute; 
+                right: 130px;
+
+            }
+        }    
+        &__link {
+            color: $menu-color;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 0.16px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }  
+        &__btn_log-in {
+            background-color: transparent;
+            border: none;
+            color: $menu-color;
+            font-weight: 700;
+            letter-spacing: 0.16px;
+            font-size: 16px;
+            line-height: 58px;
+            cursor: pointer;
+            & > svg {
+                margin-right: 8px;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }  
+        &__btn_sign-up {
+            background-color: transparent;
+            border: none;
+            color: $btn-color;
+            font-weight: 700;
+            letter-spacing: 0.16px;
+            font-size: 16px;
+            line-height: 56px;
+            padding-left: 38px;
+            cursor: pointer;
+        }
+    }
+    &-language-list {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 17px;
+        &__item {
+            color: $lang-menu-color;
+            list-style-type: none;
+            padding-left: 0;
+            &::after {
+                content: "/";
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            &:last-child {
+                &::after {
+                    content: "";
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+            }
+        }
+        &__link {
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.14px;
+            color: $lang-menu-color;
+            &_active {
+                font-weight: 700;
+                text-decoration: underline;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.block-button {
+    position: relative;
+    display: block;
+    width: 400px;
+    margin: 58px auto 0;
+    &__item {
+        position: absolute;
+        list-style-type: none;
+        padding-left: 0;
+        &_btn_create {
+            left: -11px;            
+            width: 281px;
+            height: 102px;
+            background-image: url(../img/button_ctreat.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            &:hover {
+                left: -10px;
+                top: 1px;
+            }
+
+        } 
+        &_link_apple {
+            background-color: $btn-bg-color;
+            border-radius: 50%;
+            border: none;
+            padding: 11px 16px;
+            left: 278px;
+            top: 16px;
+            font-size: 22px;
+            &:hover {
+                left: 279px;
+                top: 17px;
+            }
+        }
+        &_link_play {
+            background-color: $btn-bg-color;
+            border-radius: 50%;
+            border: none;
+            padding: 11px 14px;
+            left: 343px;
+            top: 16px;
+            font-size: 21px;
+            &:hover {
+                left: 344px;
+                top: 17px;
+            }
+        }
+        &:hover .block-button__btn, .block-button__link-cicle {
+            color: $btn-hover-color;
+        }
+        
+    }
+    &__btn {
+        background-color: transparent;
+        border: none;
+        color: $btn-color;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 72px;
+        letter-spacing: 0.18px;
+        padding-left: 82px;;
+        cursor: pointer;
+    }
+    &__link-cicle {
+        color: $btn-color;
+        text-align: center;
+    }
+}
